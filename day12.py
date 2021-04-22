@@ -8,13 +8,13 @@
 # print(maximum_of_list([1,2,3,4,5]))
 # print(maximum_of_list([10,20,30]))
 
-def maximum_of_2():
-    num1 = int(input())
-    num2 = int(input())
-    if num1 > num2:
-        print(num1)
-    else:
-        print(num2)
+# def maximum_of_2():
+#     num1 = int(input())
+#     num2 = int(input())
+#     if num1 > num2:
+#         print(num1)
+#     else:
+#         print(num2)
 
 # maximum_of_2()
 #
@@ -22,18 +22,24 @@ def maximum_of_2():
 
 
 def register(username, password, confirm_password):
-    if password == confirm_password:
+    if password == confirm_password and len(username) > 8 and not password.isalpha():
         return username, password
-    else:
-        print('Пароли не совпадают!')
-username,password = register('harry', '123456', '123456')
-# print(username,password)
 
-def login(enter_username, enter_password):
-    if enter_username == username and enter_password == password:
-        print('successful')
-    else:
-        print('not ok')
+try:
+    username,password = register('HarryPotter', '123456', '123456')
+except TypeError:
+    print('введите правильные данные!')
 
-login('harry', '1234567')
+
+def login():
+    for i in range(3):
+        username1 = input()
+        password1 = input()
+        if username1 == username and password1 == password:
+            print('successful')
+            break
+        else:
+            print('not ok')
+
+login()
 
